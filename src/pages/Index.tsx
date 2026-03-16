@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { Users, GraduationCap, BookOpen, Briefcase, QrCode, Star, ArrowRight, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import StatCard from "@/components/StatCard";
-import heroImage from "@/assets/hero-image.jpg";
+import heroImage from "@/assets/hero-image.jpeg";
 
 const features = [
   {
