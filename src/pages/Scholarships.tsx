@@ -5,12 +5,12 @@ import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 
 const scholarships = [
-  { title: "Women in Tech Africa Scholarship", org: "Google.org", field: "Computer Science", country: "Pan-African", deadline: "Apr 30, 2026", amount: "$10,000", level: "Undergraduate" },
-  { title: "STEM Sisters Fellowship", org: "UNESCO", field: "Engineering", country: "Global", deadline: "May 15, 2026", amount: "$15,000", level: "Masters" },
-  { title: "African Girls Code Bursary", org: "AfriLabs", field: "Software Dev", country: "Nigeria, Kenya, Ghana", deadline: "Jun 1, 2026", amount: "$5,000", level: "High School" },
-  { title: "Future Women Scientists Grant", org: "WHO", field: "Biomedical Sciences", country: "Global", deadline: "Jul 20, 2026", amount: "$20,000", level: "PhD" },
-  { title: "She Builds Scholarship", org: "Microsoft", field: "Cloud Computing", country: "East Africa", deadline: "May 30, 2026", amount: "$8,000", level: "Undergraduate" },
-  { title: "Empow(H)er STEM Award", org: "UN Women", field: "Any STEM", country: "Global", deadline: "Aug 10, 2026", amount: "$12,000", level: "Masters" },
+  { title: "Women in Tech ", org: "Google.org", field: "Computer Science", country: "Pan-African", deadline: "Apr 30, 2026", level: "Undergraduate" },
+  { title: "Shecode Africa", org: "UNESCO", field: "Engineering", country: "Global", deadline: "May 15, 2026", level: "Masters" },
+  { title: "She Leads", org: "AfriLabs", field: "Software Dev", country: "Nigeria, Kenya, Ghana", deadline: "Jun 1, 2026",  "High School" },
+  { title: "Women in Sustainable Stem Africa", org: "WHO", field: "Biomedical Sciences", country: "Global", deadline: "Jul 20, 2026",  level: "PhD" },
+  { title: "Codada", org: "Microsoft", field: "Cloud Computing", country: "East Africa", deadline: "May 30, 2026",  level: "Undergraduate" },
+  { title: "Women TechMakers", org: "UN Women", field: "Any STEM", country: "Global", deadline: "Aug 10, 2026", level: "Masters" },
 ];
 
 const Scholarships = () => (
