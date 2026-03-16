@@ -58,7 +58,7 @@ const Navbar = () => {
               <>
                 <span className="text-sm text-muted-foreground flex items-center gap-1">
                   <UserCircle className="h-4 w-4" />
-                  {user.user_metadata?.full_name || user.email}
+                  {user.user_metadata?.nickname || user.user_metadata?.full_name || user.email}
                 </span>
                 <Button variant="ghost" size="sm" onClick={handleSignOut}>
                   <LogOut className="h-4 w-4 mr-1" /> Sign Out

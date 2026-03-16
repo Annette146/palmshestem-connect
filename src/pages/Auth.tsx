@@ -16,18 +16,69 @@ const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [fullName, setFullName] = useState("");
+  const [nickname, setNickname] = useState(""); // FIX: Added nickname state
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const [loginAttempts, setLoginAttempts] = useState(0);
+  const MAX_ATTEMPTS = 3;
+
+  // FIX: Added missing validateEmail function to stop the ReferenceError
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return false;
+    }
+    return true;
+  };
+
+  const validatePassword = (password: string) => {
+    const strongPassword =
+      password.length >= 8 &&
+      /[A-Z]/.test(password) &&
+      /[0-9]/.test(password) &&
+      /[!@#$%^&*(),.?":{}|<>]/.test(password);
+
+    if (!strongPassword) {
+      toast({
+        title: "Weak password",
+        description:
+          "Password must be at least 8 characters, include a number, special character and a capital letter.",
+        variant: "destructive",
+      });
+      return false;
+    }
+    return true;
+  };
 
   const handleSignIn = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (loginAttempts >= MAX_ATTEMPTS) {
+      toast({
+        title: "Too many attempts",
+        description: "Please wait before trying again.",
+        variant: "destructive",
+      });
+      return;
+    }
     setLoading(true);
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
+
     if (error) {
-      toast({ title: "Sign in failed", description: error.message, variant: "destructive" });
+      setLoginAttempts(prev => prev + 1);
+      toast({
+        title: "Sign in failed",
+        description: error.message,
+        variant: "destructive",
+      });
     } else {
+      setLoginAttempts(0);
       toast({ title: "Welcome back!" });
       navigate("/");
     }
@@ -35,16 +86,27 @@ const Auth = () => {
 
   const handleSignUp = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // FIX: Re-enabled email validation now that function is defined
+    if (!validateEmail(email)) return; 
+    if (!validatePassword(password)) return;
+
     setLoading(true);
+
     const { error } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        data: { full_name: fullName },
+        data: { 
+          full_name: fullName, 
+          nickname: nickname // Matches your SQL: NEW.raw_user_meta_data->>'nickname'
+        },
         emailRedirectTo: window.location.origin,
       },
     });
+
     setLoading(false);
+
     if (error) {
       toast({ title: "Sign up failed", description: error.message, variant: "destructive" });
     } else {
@@ -91,13 +153,33 @@ const Auth = () => {
 
           <form onSubmit={mode === "signin" ? handleSignIn : mode === "signup" ? handleSignUp : handleForgotPassword} className="space-y-4">
             {mode === "signup" && (
-              <div className="space-y-2">
-                <Label htmlFor="name">Full Name</Label>
-                <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input id="name" placeholder="Your full name" value={fullName} onChange={(e) => setFullName(e.target.value)} className="pl-10" required />
+              <>
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full Name</Label>
+                  <div className="relative">
+                    <User className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input
+                      id="name"
+                      placeholder="Your full name"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      className="pl-10"
+                      required
+                    />
+                  </div>
                 </div>
-              </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="nickname">Display Name (Nickname)</Label>
+                  <Input
+                    id="nickname"
+                    placeholder="Choose a nickname for privacy"
+                    value={nickname} // FIX: Connected to state
+                    onChange={(e) => setNickname(e.target.value)} // FIX: Connected to state
+                    className="pl-3"
+                  />
+                </div>
+              </>
             )}
 
             <div className="space-y-2">
