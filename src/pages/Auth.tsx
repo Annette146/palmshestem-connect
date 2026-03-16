@@ -22,86 +22,6 @@ const Auth = () => {
   const { toast } = useToast();
   const [loginAttempts, setLoginAttempts] = useState(0);
   const MAX_ATTEMPTS = 3;
-<<<<<<< HEAD
-
-  const handleSignIn = async (e: React.FormEvent) => {
-  e.preventDefault();
-
-  if (loginAttempts >= MAX_ATTEMPTS) {
-    toast({
-      title: "Too many attempts",
-      description: "Please wait before trying again.",
-      variant: "destructive",
-    });
-    return;
-  }
-
-  setLoading(true);
-
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
-
-  setLoading(false);
-
-  if (error) {
-    setLoginAttempts(loginAttempts + 1);
-
-    toast({
-      title: "Sign in failed",
-      description: error.message,
-      variant: "destructive",
-    });
-  } else {
-    setLoginAttempts(0);
-    toast({ title: "Welcome back!" });
-    navigate("/");
-  }
-};
-
-  const validatePassword = (password: string) => {
-  const strongPassword =
-    password.length >= 8 &&
-    /[A-Z]/.test(password) &&
-    /[0-9]/.test(password);
-
-  if (!strongPassword) {
-    toast({
-      title: "Weak password",
-      description:
-        "Password must be at least 8 characters, include a number,special character and a capital letter.",
-      variant: "destructive",
-    });
-    return false;
-  }
-
-  return true;
-};
-
- const handleSignUp = async (e: React.FormEvent) => {
-  e.preventDefault();
-
-  if (!validateEmail(email)) return;
-  if (!validatePassword(password)) return;
-
-  setLoading(true);
-
-  const { error } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      data: { full_name: fullName },
-      emailRedirectTo: window.location.origin,
-    },
-  });
-
-  setLoading(false);
-
-  if (error) {
-    toast({ title: "Sign up failed", description: error.message, variant: "destructive" });
-  } else {
-    toast({ title: "Account created!", description: "Check your email to confirm your account." });
-  }
-};
-=======
 
   // FIX: Added missing validateEmail function to stop the ReferenceError
   const validateEmail = (email: string) => {
@@ -193,7 +113,6 @@ const Auth = () => {
       toast({ title: "Account created!", description: "Check your email to confirm your account." });
     }
   };
->>>>>>> origin/update-auth-navbar
 
   const handleForgotPassword = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -249,31 +168,17 @@ const Auth = () => {
                     />
                   </div>
                 </div>
-<<<<<<< HEAD
-              </div>
-              <div className="space-y-2">
-            <Label htmlFor="nickname">Display Name (Nickname)</Label>
-              <Input
-              id="nickname"
-              placeholder="Choose a nickname for privacy"
-            className="pl-3"
-                />
-              </div>
-              
-=======
 
-                <div className="space-y-2">
-                  <Label htmlFor="nickname">Display Name (Nickname)</Label>
-                  <Input
-                    id="nickname"
-                    placeholder="Choose a nickname for privacy"
-                    value={nickname} // FIX: Connected to state
-                    onChange={(e) => setNickname(e.target.value)} // FIX: Connected to state
-                    className="pl-3"
-                  />
-                </div>
-              </>
->>>>>>> origin/update-auth-navbar
+              <div className="space-y-2">
+  <Label htmlFor="nickname">Display Name (Nickname)</Label>
+  <Input
+    id="nickname"
+    placeholder="Choose a nickname for privacy"
+    value={nickname} // connected to state
+    onChange={(e) => setNickname(e.target.value)} // connected to state
+    className="pl-3"
+  />
+</div>
             )}
 
             <div className="space-y-2">
