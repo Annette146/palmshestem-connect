@@ -1,46 +1,57 @@
+# PALM She Hub Project
 
+## Project Info
 
-## Project info
+**Project URL:** [https://palmshehub.dev/projects/REPLACE_WITH_PROJECT_ID](https://palmshehub.dev/projects/REPLACE_WITH_PROJECT_ID)
 
-**URL**: https://shestem connect.dev/projects/REPLACE_WITH_PROJECT_ID
+PALM She Hub is a platform that allows you to manage and explore projects efficiently.  
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## How to Edit This Project
 
+There are several ways to make changes:
 
-**Use your preferred IDE**
+### 1. Use PALM She Hub
+Visit the [PALM She Hub](https://palmshehub.dev/projects/REPLACE_WITH_PROJECT_ID) platform and make changes directly. All updates made via the platform will sync automatically to this repository.  
 
+### 2. Use Your Local IDE
+Clone the repository and edit files using your preferred IDE. Ensure you have Node.js and npm installed.  
+Install Node.js via [nvm](https://github.com/nvm/nvm#installing-and-updating) if needed.  
 
+### 3. Edit Directly on GitHub
+- Navigate to the file you want to edit.  
+- Click the **Edit** (pencil) icon.  
+- Commit your changes directly to the repository.  
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 4. Use GitHub Codespaces
+- Click the **Code** button → **Codespaces** → **New codespace**.  
+- Edit files in the cloud environment and push changes back when done.  
 
+---
 
-**Edit a file directly in GitHub**
+## Technologies Used
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- Vite  
+- TypeScript  
+- React  
+- shadcn-ui  
+- Tailwind CSS  
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Custom Domain
 
-## What technologies are used for this project?
+You can connect a custom domain to your project:
 
-This project is built with:
+1. Go to **Project → Settings → Domains**  
+2. Click **Connect Domain**  
+3. Follow the instructions to set up your domain.  
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+More details: [Custom Domain Setup](https://docs.palmshehub.dev/features/custom-domain#custom-domain)
 
+---
 
+## Notes
 
-
-see more here: [Setting up a custom domain](https://docs.shestem connect.dev/features/custom-domain#custom-domain)
+Keep all changes clean and synced with the platform to ensure smooth operation.  
