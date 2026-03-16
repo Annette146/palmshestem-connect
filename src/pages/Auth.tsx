@@ -19,38 +19,86 @@ const Auth = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+  const [loginAttempts, setLoginAttempts] = useState(0);
+  const MAX_ATTEMPTS = 3;
 
   const handleSignIn = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    setLoading(false);
-    if (error) {
-      toast({ title: "Sign in failed", description: error.message, variant: "destructive" });
-    } else {
-      toast({ title: "Welcome back!" });
-      navigate("/");
-    }
-  };
+  e.preventDefault();
 
-  const handleSignUp = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    const { error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: { full_name: fullName },
-        emailRedirectTo: window.location.origin,
-      },
+  if (loginAttempts >= MAX_ATTEMPTS) {
+    toast({
+      title: "Too many attempts",
+      description: "Please wait before trying again.",
+      variant: "destructive",
     });
-    setLoading(false);
-    if (error) {
-      toast({ title: "Sign up failed", description: error.message, variant: "destructive" });
-    } else {
-      toast({ title: "Account created!", description: "Check your email to confirm your account." });
-    }
-  };
+    return;
+  }
+
+  setLoading(true);
+
+  const { error } = await supabase.auth.signInWithPassword({ email, password });
+
+  setLoading(false);
+
+  if (error) {
+    setLoginAttempts(loginAttempts + 1);
+
+    toast({
+      title: "Sign in failed",
+      description: error.message,
+      variant: "destructive",
+    });
+  } else {
+    setLoginAttempts(0);
+    toast({ title: "Welcome back!" });
+    navigate("/");
+  }
+};
+
+  const validatePassword = (password: string) => {
+  const strongPassword =
+    password.length >= 8 &&
+    /[A-Z]/.test(password) &&
+    /[0-9]/.test(password);
+
+  if (!strongPassword) {
+    toast({
+      title: "Weak password",
+      description:
+        "Password must be at least 8 characters, include a number,special character and a capital letter.",
+      variant: "destructive",
+    });
+    return false;
+  }
+
+  return true;
+};
+
+ const handleSignUp = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (!validateEmail(email)) return;
+  if (!validatePassword(password)) return;
+
+  setLoading(true);
+
+  const { error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      data: { full_name: fullName },
+      emailRedirectTo: window.location.origin,
+    },
+  });
+
+  setLoading(false);
+
+  if (error) {
+    toast({ title: "Sign up failed", description: error.message, variant: "destructive" });
+  } else {
+    toast({ title: "Account created!", description: "Check your email to confirm your account." });
+  }
+};
 
   const handleForgotPassword = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -98,6 +146,15 @@ const Auth = () => {
                   <Input id="name" placeholder="Your full name" value={fullName} onChange={(e) => setFullName(e.target.value)} className="pl-10" required />
                 </div>
               </div>
+              <div className="space-y-2">
+            <Label htmlFor="nickname">Display Name (Nickname)</Label>
+              <Input
+              id="nickname"
+              placeholder="Choose a nickname for privacy"
+            className="pl-3"
+                />
+              </div>
+              
             )}
 
             <div className="space-y-2">
