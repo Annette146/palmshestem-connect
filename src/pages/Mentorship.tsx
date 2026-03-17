@@ -4,12 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 const mentors = [
-  { name: "Dr. Aisha Bello", field: "Artificial Intelligence", location: "Nigeria", experience: "12 years", rating: 4.9, avatar: "AB" },
-  { name: "Prof. Sarah Kimani", field: "Biomedical Engineering", location: "Kenya", experience: "15 years", rating: 4.8, avatar: "SK" },
-  { name: "Eng. Fatou Diallo", field: "Software Engineering", location: "Senegal", experience: "8 years", rating: 4.9, avatar: "FD" },
-  { name: "Dr. Amara Osei", field: "Data Science", location: "Ghana", experience: "10 years", rating: 4.7, avatar: "AO" },
-  { name: "Dr. Lina Ndungu", field: "Cybersecurity", location: "Tanzania", experience: "7 years", rating: 4.8, avatar: "LN" },
-  { name: "Eng. Zara Mohammed", field: "Robotics", location: "Ethiopia", experience: "9 years", rating: 4.9, avatar: "ZM" },
+  { name: "Nancy Maina", field: "Artificial Intelligence", location: "Meru", experience: "5 years", rating: 7.9, avatar: "NM" },
+  { name: "Grace Ngari", field: "Data Science", location: "Nairobi", experience: "3 years", rating: 7.8, avatar: "GN" },
+  { name: "Dr. Mary Mwadulo", field: "Computer Science", location: "Nanyuki", experience: "8 years", rating: 7.9, avatar: "MM" },
+  { name: "Asunta Mary", field: "Information Technology", location: "Isiolo", experience: "10 years", rating: 7.9, avatar: "AM" },
+  { name: "Dr.Bundi Dorothy", field: "Cybersecurity", location: "Machakos", experience: "7 years", rating: 7.8, avatar: "BD" },
 ];
 
 const Mentorship = () => (
