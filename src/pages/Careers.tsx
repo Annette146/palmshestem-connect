@@ -6,10 +6,10 @@ import { Badge } from "@/components/ui/badge";
 const careerPaths = [
   { title: "Software Engineer", demand: "Very High", salary: "$60K–$150K", growth: "+25%", skills: ["Python", "JavaScript", "System Design"] },
   { title: "Data Scientist", demand: "High", salary: "$70K–$140K", growth: "+36%", skills: ["Statistics", "Machine Learning", "SQL"] },
-  { title: "Biomedical Engineer", demand: "High", salary: "$65K–$120K", growth: "+10%", skills: ["Biology", "Engineering", "Medical Devices"] },
+  { title: "Android Developer", demand: "High", salary: "$65K–$120K", growth: "+10%", skills: ["Flutter", "Kotlin", "Java"] },
   { title: "Cybersecurity Analyst", demand: "Very High", salary: "$65K–$130K", growth: "+35%", skills: ["Networking", "Security", "Risk Assessment"] },
   { title: "UX/UI Designer", demand: "High", salary: "$55K–$110K", growth: "+13%", skills: ["Figma", "User Research", "Prototyping"] },
-  { title: "Environmental Engineer", demand: "Moderate", salary: "$60K–$100K", growth: "+4%", skills: ["Environmental Science", "Water Treatment", "GIS"] },
+  { title: "Cloud Architect", demand: "Moderate", salary: "$60K–$100K", growth: "+4%", skills: ["Linux", "Networking", "Kybernetes"] },
 ];
 
 const tips = [
@@ -70,7 +70,8 @@ const Careers = () => (
       <div className="container mx-auto px-4">
         <h2 className="text-2xl font-heading font-bold mb-8">Explore STEM Careers</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {careerPaths.map((career, i) => (
+          {careerPaths.map((career, i) => (npm audit
+          nnpm 
             <motion.div
               key={career.title}
               initial={{ opacity: 0, y: 20 }}
@@ -91,21 +92,6 @@ const Careers = () => (
                 ))}
               </div>
             </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* Tips */}
-    <section className="py-16 bg-muted/50">
-      <div className="container mx-auto px-4 max-w-2xl">
-        <h2 className="text-2xl font-heading font-bold mb-8 text-center">Resume & Interview Tips</h2>
-        <div className="space-y-3">
-          {tips.map((tip) => (
-            <div key={tip} className="flex items-start gap-3 p-4 rounded-xl bg-card border border-border">
-              <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
-              <span className="text-sm text-foreground">{tip}</span>
-            </div>
           ))}
         </div>
       </div>
