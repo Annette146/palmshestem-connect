@@ -12,12 +12,60 @@ const categories = [
 ];
 
 const courses = [
-  { title: "Python for Beginners", category: "Coding", level: "Beginner", duration: "6 hours", type: "Video", lessons: 24 },
-  { title: "Introduction to Biology", category: "Science", level: "Beginner", duration: "4 hours", type: "PDF + Video", lessons: 16 },
-  { title: "Web Development Bootcamp", category: "Coding", level: "Intermediate", duration: "12 hours", type: "Video", lessons: 48 },
-  { title: "Electronics & Circuits", category: "Engineering", level: "Beginner", duration: "5 hours", type: "Video", lessons: 20 },
-  { title: "Data Science with R", category: "Technology", level: "Advanced", duration: "10 hours", type: "Video", lessons: 36 },
-  { title: "Robotics Fundamentals", category: "Engineering", level: "Intermediate", duration: "8 hours", type: "PDF + Video", lessons: 30 },
+  {
+    title: "Python for Beginners",
+    category: "Coding",
+    level: "Beginner",
+    duration: "6 hours",
+    type: "Video",
+    lessons: 24,
+    link: "https://www.w3schools.com/python/"
+  },
+  {
+    title: "Introduction to Java",
+    category: "Coding",
+    level: "Beginner",
+    duration: "4 hours",
+    type: "PDF + Video",
+    lessons: 16,
+    link: "https://www.w3schools.com/java/"
+  },
+  {
+    title: "Introduction to C++ ",
+    category: "Coding",
+    level: "Intermediate",
+    duration: "12 hours",
+    type: "Video",
+    lessons: 48,
+    link: "https://www.w3schools.com/C++/"
+  },
+  {
+    title: "Intoduction to HTML",
+    category: "Coding",
+    level: "Beginner",
+    duration: "5 hours",
+    type: "Video",
+    lessons: 20,
+    link: "https://www.w3schools.com/html/"
+  },
+  {
+    title: "Intoduction to MYSQL",
+    category: "coding",
+    level: "Advanced",
+    duration: "10 hours",
+    type: "Video",
+    lessons: 36,
+    link: "https://www.w3schools.com/MYSQL/"
+  },
+  {
+    title: "Introduction to JQUERY",
+    category: "Coding",
+    level: "Intermediate",
+    duration: "8 hours",
+    type: "PDF + Video",
+    lessons: 30,
+    link: "https://www.w3schools.com/JQUERY/"
+  },
 ];
 
 const levelColors: Record<string, string> = {
@@ -92,9 +140,11 @@ const StemHub = () => (
                   <span className="flex items-center gap-1"><Clock className="h-3.5 w-3.5" />{course.duration}</span>
                   <span className="flex items-center gap-1"><FileText className="h-3.5 w-3.5" />{course.lessons} lessons</span>
                 </div>
-                <Button className="w-full" variant="outline">
-                  Start Learning <ArrowRight className="ml-1 h-4 w-4" />
-                </Button>
+               <a href={course.link} target="_blank" rel="noopener noreferrer">
+  <Button className="w-full" variant="outline">
+    Start Learning <ArrowRight className="ml-1 h-4 w-4" />
+  </Button>
+</a>
               </div>
             </motion.div>
           ))}
