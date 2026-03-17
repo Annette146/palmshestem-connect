@@ -33,9 +33,9 @@ const features = [
 ];
 
 const successStories = [
-  { name: "Amina K.", role: "Software Engineer at Google", quote: "PALM SheHub connected me with a mentor who changed my career trajectory." },
-  { name: "Grace M.", role: "Biomedical Researcher", quote: "I found my PhD scholarship through this platform. Life-changing!" },
-  { name: "Fatima O.", role: "Data Scientist", quote: "The STEM courses gave me the confidence to switch from arts to tech." },
+  { name: "Leah Wanjiru.", role: "Graphic designer", quote: "PALM SheHub connected me with a mentor who changed my career trajectory." },
+  { name: "Praise Nyuthe.", role: "AI/ML Engineer", quote: "I found my PhD scholarship through this platform. Life-changing!" },
+  { name: "Miriam Bwari.", role: "Security Analyst ", quote: "The STEM courses gave me the confidence to switch from arts to tech." },
 ];
 
 const Index = () => {
