@@ -6,10 +6,10 @@ import { Badge } from "@/components/ui/badge";
 const careerPaths = [
   { title: "Software Engineer", demand: "Very High", salary: "$60K–$150K", growth: "+25%", skills: ["Python", "JavaScript", "System Design"] },
   { title: "Data Scientist", demand: "High", salary: "$70K–$140K", growth: "+36%", skills: ["Statistics", "Machine Learning", "SQL"] },
-  { title: "Biomedical Engineer", demand: "High", salary: "$65K–$120K", growth: "+10%", skills: ["Biology", "Engineering", "Medical Devices"] },
+  { title: "Backend Developer", demand: "High", salary: "$65K–$120K", growth: "+10%", skills: ["Node.js", "MySQL", "MongoDB"] },
   { title: "Cybersecurity Analyst", demand: "Very High", salary: "$65K–$130K", growth: "+35%", skills: ["Networking", "Security", "Risk Assessment"] },
   { title: "UX/UI Designer", demand: "High", salary: "$55K–$110K", growth: "+13%", skills: ["Figma", "User Research", "Prototyping"] },
-  { title: "Environmental Engineer", demand: "Moderate", salary: "$60K–$100K", growth: "+4%", skills: ["Environmental Science", "Water Treatment", "GIS"] },
+  { title: "Blockchain Developer", demand: "Very High", salary: "$60K–$100K", growth: "+4%", skills: ["Blockchain", "Smart Contracts", "Cryptography"] },
 ];
 
 const tips = [
