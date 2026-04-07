@@ -1,4 +1,4 @@
-import { useState } from "react";
+git remote add origin https://github.com/your-username/my-money-mate.gitgit remote add origin https://github.com/your-username/my-money-mate.gitimport { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X, LogOut, UserCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
